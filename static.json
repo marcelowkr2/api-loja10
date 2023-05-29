@@ -1,0 +1,8 @@
+{
+    "root":"web/dist",
+    "clean_urls": true,
+    "routes": {
+        "/**": "index.html"
+    },
+    "error_page": "/404"
+}
