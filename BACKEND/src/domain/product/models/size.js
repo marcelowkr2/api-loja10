@@ -1,25 +1,23 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
+const mongoose = require("mongoose");
 
-const Sizes = db.define(
-  "Sizes",
+let sizeSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     name: {
-      type: DataTypes.STRING
+      type: String
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -27,4 +25,4 @@ const Sizes = db.define(
   }
 );
 
-module.exports = Sizes
+module.exports = mongoose.model("Sizes", sizeSchema);

@@ -1,27 +1,24 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const  Sizes  = require('./size');
-const  Products  = require ("./product");
+const mongoose = require("mongoose");
+const Products = require("./product");
 
 
-const Product_Sizes = db.define(
-  "Product_Sizes",
+let product_sizeSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     id_size: {
-      type: DataTypes.INTEGER,
+      type: String,
       references:{
-        model: Sizes,
+        model: Products,
         key: 'id'
     }
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       references:{
         model: Products,
         key: 'id' 
@@ -29,11 +26,11 @@ const Product_Sizes = db.define(
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -42,4 +39,5 @@ const Product_Sizes = db.define(
   }
 );
 
-module.exports = Product_Sizes
+module.exports = mongoose.model("Product_Sizes", product_sizeSchema);
+

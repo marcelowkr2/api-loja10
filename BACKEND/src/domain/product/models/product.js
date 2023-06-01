@@ -1,51 +1,50 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
+const mongoose = require("mongoose");
 
-const Products = db.define(
-  "Products",
+let productSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     description: {
-      type: DataTypes.STRING
+      type: String
     },
     model: {
-      type: DataTypes.STRING
+      type: String
     },
     type: {
-      type: DataTypes.STRING
+      type: String
     },
     price: {
-      type: DataTypes.DECIMAL
+      type: Number
     },
     weight: {
-      type: DataTypes.DECIMAL
+      type: Number
     },
     notes: {
-      type: DataTypes.STRING
+      type: String
     },
     overall_evaluation: {
-      type: DataTypes.INTEGER
+      type: String
     },
     status: {
-      type: DataTypes.INTEGER
+      type: String
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
     tableName: "products",
   }
 );
-Products.sync();
-module.exports = Products
+
+
+module.exports = mongoose.model("Products", productSchema);

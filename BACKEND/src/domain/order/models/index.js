@@ -1,23 +1,33 @@
-const Orders = require('./order')
-const Order_Details = require('./order_detail')
-const Customers = require('./customer')
+const mongoose = require('mongoose');
 
+const orderSchema = new mongoose.Schema({
+  // Campos do modelo Order
+  customer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Customer'
+  }
+});
 
-Orders.hasMany(Order_Details, {
-    foreignKey: "id_order",
+const Order = mongoose.model('Order', orderSchema);
+
+const orderDetailSchema = new mongoose.Schema({
+  // Campos do modelo Order_Detail
+  order: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Order'
+  }
 });
-Order_Details.belongsTo(Orders, {
-    foreignKey: "id_order",
+
+const OrderDetail = mongoose.model('OrderDetail', orderDetailSchema);
+
+const customerSchema = new mongoose.Schema({
+  // Campos do modelo Customer
 });
-Customers.hasMany(Orders, {
-    foreignKey: "id_customer",
-});
-Orders.belongsTo(Customers, {
-    foreignKey: "id_customer",
-});
+
+const Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = {
-    Orders,
-    Order_Details,
-    Customers
-}
+  Order,
+  OrderDetail,
+  Customer
+};

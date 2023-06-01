@@ -1,43 +1,41 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const  Products  = require('./product')
+const mongoose = require("mongoose");
+const { Products } = require(".");
 
-const  Ratings = db.define(
-  "Ratings",
+let rastingSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       foreignKey: true,
       references: {
-        model: Products,
+        model:Products,
         key: "id",
       },
     },
     description: {
-      type: DataTypes.STRING
+      type: String
     },
     date: {
-      type: DataTypes.DATE
+      type: Date
     },
     evaluation_grade: {
-      type: DataTypes.INTEGER
+      type: String
     },
     author: {
-      type: DataTypes.STRING
+      type: String
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -45,5 +43,4 @@ const  Ratings = db.define(
   }
 );
 
-
-module.exports = Ratings
+module.exports = mongoose.model("Ratings", rastingSchema);

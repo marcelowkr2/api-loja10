@@ -1,39 +1,35 @@
-const  Collections  = require ("./collection");
-const  Products = require ("./product");
+const mongoose = require("mongoose");
+const { Collections, Products } = require(".");
 
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-
-const Product_Collections = db.define(
-  "Product_Collections",
+let product_collectionSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     id_collection: {
-      type: DataTypes.INTEGER,
+      type: String,
       references:{
-        model: Collections,
+        model:Collections,
         key: 'id'
     }
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       references: {
-        model: Products,
+        model:Products,
         key: 'id'
       }
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Date
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Date
       }
     },
   {
@@ -41,4 +37,4 @@ const Product_Collections = db.define(
   }
 );
 
-module.exports = Product_Collections
+module.exports = mongoose.model("Product_Collections", product_collectionSchema);

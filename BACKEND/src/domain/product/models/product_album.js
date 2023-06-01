@@ -1,34 +1,32 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const Products = require("./product");
+const mongoose = require("mongoose");
+const { Products } = require(".");
 
-const Product_Albums = db.define(
-  "Product_Albums",
+let product_albumSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: String,
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       foreignKey: true,
       references: {
-        model: Products,
+        model:Products,
         key: "id",
       },
     },
     url_image: {
-      type: DataTypes.STRING,
+      type: String,
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
   },
   {
@@ -37,5 +35,5 @@ const Product_Albums = db.define(
 );
 
 
+module.exports = mongoose.model("Product_Albums", product_albumSchema);
 
-module.exports = Product_Albums;

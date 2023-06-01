@@ -1,41 +1,39 @@
-const  Colors  = require ('./color');
-const  Products = require ("./product");
+const mongoose = require("mongoose"); 
+const { Products, Colors } = require(".");
 
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
 
-const  Product_Colors = db.define(
-  "Product_Colors",
+
+let product_collorSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       foreign_key: true,
       references:{
-        model: Products,
+        model:Products,
         key: 'id' 
       }     
     },
     id_color: {
-      type: DataTypes.INTEGER,
+      type: String,
       foreign_key: true,
       references:{
-        model: Colors,
+        model:Colors,
         key: 'id'
     }
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -43,4 +41,4 @@ const  Product_Colors = db.define(
   }
 );
 
-module.exports = Product_Colors
+module.exports = mongoose.model("Product_Colors", product_collorSchema);

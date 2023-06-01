@@ -1,7 +1,4 @@
 const Sequelize = require("sequelize");
-const mysql = require('mysql');
-
-
 
 const DB_NAME = "loja";
 const DB_USER = "Marcelop";

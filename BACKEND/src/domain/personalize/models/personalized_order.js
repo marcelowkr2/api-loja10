@@ -1,31 +1,29 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require ("sequelize");
+const mongoose = require("mongoose");
 
-const Personalized_Orders = db.define(
-  "Personalized_Orders",
+let personalizedSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     name: {
-      type: DataTypes.STRING
+      type: String
     },
     email: {
-      type: DataTypes.STRING
+      type: String
     },
     description: {
-      type: DataTypes.STRING
+      type: String
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -34,5 +32,4 @@ const Personalized_Orders = db.define(
 );
 
 
-
-module.exports = Personalized_Orders
+module.exports = mongoose.model("Personalized_Orders", personalizedSchema);

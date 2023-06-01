@@ -1,32 +1,30 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
+const mongoose = require("mongoose");
 
 
-const  Questions = db.define(
-  "Questions",
+let questionsSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     name: {
-      type: DataTypes.STRING
+      type: String
     },
     email: {
-      type: DataTypes.STRING
+      type: String
     },
     notes: {
-      type: DataTypes.STRING
+      type: String
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -34,4 +32,4 @@ const  Questions = db.define(
   }
 );
 
-module.exports = Questions;
+module.exports = mongoose.model("Questions", questionsSchema);

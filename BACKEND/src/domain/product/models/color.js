@@ -1,28 +1,27 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require ('sequelize')
+const mongoose = require("mongoose");
 
-const Colors = db.define (
-    'Colors', {
+let colorSchema = new mongoose.Schema(
+    {
     id:{
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: String
       },
       name: {
-        type: DataTypes.STRING
+        type: String
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Date
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Date
       }
 }, {
     tableName: 'colors'
 })
 
+module.exports = mongoose.model("Colors", colorSchema);
 
-module.exports = Colors

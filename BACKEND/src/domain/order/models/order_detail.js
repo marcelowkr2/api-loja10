@@ -1,69 +1,40 @@
-const Customers = require ("./customer");
-const Orders = require("./order");
-const Products = require("../../product/models/product")
+const mongoose = require("mongoose"); 
 
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
 
-const Order_Details = db.define(
-  "Order_Details",
+let order_detailSchema = new mongoose.Schema(
   {
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
+    products: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+        },
+        count: Number,
+        color: String,
+      },
+    ],
+    paymentIntent: {},
+    orderStatus: {
+      type: String,
+      default: "Not Processed",
+      enum: [
+        "Not Processed",
+        "Cash on Delivery",
+        "Processing",
+        "Dispatched",
+        "Cancelled",
+        "Delivered",
+      ],
     },
-    id_order: {
-      type: DataTypes.INTEGER,
-      foreignKey: true,
-      references: {
-        model: Orders,
-        key: "id",
-      }
+    orderby: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    id_product: {
-      type: DataTypes.INTEGER,
-      foreignKey: true,
-      references: {
-        model: Products,
-        key: "id",
-      }
-    },
-    amount: {
-      type: DataTypes.INTEGER
-    },
-    unit_value: {
-      type: DataTypes.DECIMAL
-    },
-    percentage_discount: {
-      type: DataTypes.DECIMAL
-    },
-    total_value: {
-      type: DataTypes.DECIMAL
-    },
-    id_product_size: {
-      type: DataTypes.INTEGER
-    },
-    id_product_color: {
-      type: DataTypes.INTEGER
-    },
-    id_product_material: {
-      type: DataTypes.INTEGER
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    }
   },
   {
-    tableName: "order_details",
+    timestamps: true,
   }
 );
 
+module.exports = mongoose.model("Order_Details", order_detailSchema);
 
-module.exports = Order_Details

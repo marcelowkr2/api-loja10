@@ -1,51 +1,46 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const Customers = require("./customer");
+const mongoose = require("mongoose"); 
 
-const  Orders = db.define(
-  "Orders",
+
+// Declare o schema do modelo Mongo
+let orderSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
-    },   
-    total_order: {
-      type: DataTypes.DECIMAL
+      type: String
     },
-    discount: {
-      type: DataTypes.DECIMAL
-    },
-    products_quantity: {
-      type: DataTypes.INTEGER
-    },
-    shipping_total: {
-      type: DataTypes.DECIMAL
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    id_customer: {
-      type: DataTypes.INTEGER,
-      foreignKey: true,
-      references: {
-        model: Customers,
-        key: "id",
+    products: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+        },
+        count: Number,
+        color: String,
       },
+    ],
+    paymentIntent: {},
+    orderStatus: {
+      type: String,
+      default: "Not Processed",
+      enum: [
+        "Not Processed",
+        "Cash on Delivery",
+        "Processing",
+        "Dispatched",
+        "Cancelled",
+        "Delivered",
+      ],
     },
-    
+    orderby: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
-    tableName: "orders",
+    timestamps: true,
   }
 );
+module.exports = mongoose.model("Orders", orderSchema);
 
-
-
-module.exports = Orders;

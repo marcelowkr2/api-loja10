@@ -7,8 +7,7 @@
     "test": "jest",
     "dev": "nodemon src/server.js",
     "build": "tsc",
-    "start":"nodemon src/server.js"
-
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,8 @@
     "express-validation": "^3.0.8",
     "express-validator": "^6.14.0",
     "frete": "^0.4.6",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.2.2",
     "mysql2": "^2.3.3",
     "node-correios": "^3.0.2",
     "nodemon": "^2.0.18",

@@ -1,4 +1,5 @@
 const app = require('.')
+require('dotenv').config();
 
 
 app.listen(process.env.PORT || 4000, () => {

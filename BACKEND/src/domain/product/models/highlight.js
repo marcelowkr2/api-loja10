@@ -1,34 +1,32 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const Products = require("./product");
+const mongoose = require("mongoose");
+const { Products } = require(".");
 
-const Highlights = db.define(
-  "Highlights",
+let highlightSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: String
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       foreignKey: true,
       references: {
-        model: Products,
+        model:Products,
         key: "id",
       },
     },
     status: {
-      type: DataTypes.INTEGER,
+      type: String,
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
   },
   {
@@ -36,4 +34,6 @@ const Highlights = db.define(
   }
 );
 
-module.exports = Highlights;
+
+module.exports = mongoose.model("Highlights", highlightSchema);
+

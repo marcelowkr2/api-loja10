@@ -1,39 +1,35 @@
-const  Materials = require ('./material');
-const  Products  = require ("./product");
+const mongoose = require("mongoose");
+const { Product_Materials } = require(".");
 
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-
-const Product_Materials = db.define(
-  "Product_Materials",
+let product_materialSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: String
     },
     id_product: {
-      type: DataTypes.INTEGER,
+      type: String,
       references:{
-        model: Products,
+        model: Product_Materials,
         key: 'id' 
       }     
     },
     id_material: {
-      type: DataTypes.INTEGER,
+      type: String,
       references:{
-        model: Materials,
+        model: Product_Materials,
         key: 'id'
     }
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Date
     }
   },
   {
@@ -41,5 +37,4 @@ const Product_Materials = db.define(
   }
 );
 
-
-module.exports = Product_Materials
+module.exports = mongoose.model("Product_Materials", product_materialSchema);

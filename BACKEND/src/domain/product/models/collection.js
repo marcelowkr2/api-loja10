@@ -1,34 +1,32 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
+const mongoose = require("mongoose");
 
-const Collections = db.define(
-  "Collections",
+let collectionSchema = new mongoose.Schema(
   {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: String,
     },
     name: {
-      type: DataTypes.STRING,
+      type: String,
     },
     date_begin: {
-      type: DataTypes.DATE,
+      type: Date,
     },
     date_end: {
-      type: DataTypes.DATE,
+      type: Date,
     },
     status: {
-      type: DataTypes.INTEGER,
+      type: String,
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: Date,
     },
   },
   {
@@ -37,5 +35,5 @@ const Collections = db.define(
 );
 
 
+module.exports = mongoose.model("Collections", collectionSchema);
 
-module.exports = Collections;

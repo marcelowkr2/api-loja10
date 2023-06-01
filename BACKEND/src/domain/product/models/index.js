@@ -1,92 +1,63 @@
-const Collections = require("./collection");
-const Sizes = require("./size");
-const Colors = require("./color");
-const Materials = require("./material");
-const Product_Materials = require("./product_material");
-const Products = require("./product");
-const Product_Sizes = require("./product_size");
-const Product_Colors = require("./product_color");
-const Product_Collections = require("./product_collection");
-const Product_Albums = require("./product_album");
-const Highlights = require("./highlight");
-const Ratings = require("./rating");
+const mongoose = require("mongoose");
 
-Products.hasMany(Product_Albums, {
-  foreignKey: "id_product",
+const productSchema = new mongoose.Schema({
+  // Definição dos campos do modelo Product
 });
 
-Product_Albums.belongsTo(Products, {
-  foreignKey: "id_product",
+const collectionSchema = new mongoose.Schema({
+  // Definição dos campos do modelo Collection
 });
 
-Products.hasMany(Highlights, {
-  foreignKey: "id_product",
+const colorSchema = new mongoose.Schema({
+  // Definição dos campos do modelo Color
 });
 
-Highlights.belongsTo(Products, {
-  foreignKey: "id_product",
+const materialSchema = new mongoose.Schema({
+  // Definição dos campos do modelo Material
 });
 
-Products.hasMany(Ratings,{
-    foreignKey:'id_product',
-})
+const productAlbumSchema = new mongoose.Schema({
+  id_product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  },
+  // Definição dos campos do modelo ProductAlbum
+});
 
-Ratings.belongsTo(Products,{
-    foreignKey:'id_product',
-})
+const highlightSchema = new mongoose.Schema({
+  id_product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  },
+  // Definição dos campos do modelo Highlight
+});
 
-Products.belongsToMany(Collections,{
-    foreignKey:'id_product',
-    through:Product_Collections
-})
+const ratingSchema = new mongoose.Schema({
+  id_product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  },
+  // Definição dos campos do modelo Rating
+});
 
-Collections.belongsToMany(Products,{
-    foreignKey:'id_collection',
-    through:Product_Collections
-})
+// ...
 
-Products.belongsToMany(Colors,{
-    foreignKey:'id_product',
-    through:Product_Colors
-})
-
-Colors.belongsToMany(Products,{
-    foreignKey:'id_color',
-    through:Product_Colors
-})
-
-Products.belongsToMany(Materials,{
-    foreignKey:'id_product',
-    through:Product_Materials
-})
-
-Materials.belongsToMany(Products,{
-    foreignKey:'id_material',
-    through:Product_Materials
-})
-
-Products.belongsToMany(Sizes,{
-    foreignKey:'id_product',
-    through:Product_Sizes
-})
-
-Sizes.belongsToMany(Products,{
-    foreignKey:'id_size',
-    through:Product_Sizes
-})
-
+// Crie os modelos a partir dos esquemas
+const Product = mongoose.model("Product", productSchema);
+const Collection = mongoose.model("Collection", collectionSchema);
+const Color = mongoose.model("Color", colorSchema);
+const Material = mongoose.model("Material", materialSchema);
+const ProductAlbum = mongoose.model("ProductAlbum", productAlbumSchema);
+const Highlight = mongoose.model("Highlight", highlightSchema);
+const Rating = mongoose.model("Rating", ratingSchema);
 
 module.exports = {
-    Products,
-    Collections,
-    Colors,
-    Materials,
-    Sizes,
-    Product_Albums,
-    Ratings,
-    Highlights,
-    Product_Materials,
-    Product_Sizes,
-    Product_Colors,
-    Product_Collections
+  Product,
+  Collection,
+  Color,
+  Material,
+  ProductAlbum,
+  Highlight,
+  Rating,
+  // ...
 };
