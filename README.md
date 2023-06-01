@@ -1,23 +1,17 @@
-<div style="background-color:white" align="center">
-<img src="https://user-images.githubusercontent.com/92600746/178127181-28a89aa4-4bf3-44d9-bf81-85cd706629e3.png" width="250px" height="300" align="center" > 
-</div>
+# Desafio Final Gama Academy
 
 <hr> 
-<h1 align="center">Desafio Chefão <br>
-    Show Me Your
-    PRODUCT!</h1>
     
-Este é um e-commerce da marca Kelly Laços & Acessórios, promovendo melhor visibilidade para os produtos e gestão do tempo nas vendas, além de tornar a experiência da pessoa usuária mais agradável, ágil e segura para a compra.
-
+API Ecommerce, desenvolviada para o desafio final da Gama Academy.<br>
+Desenvolvida com aplicações Node.js e Express utilizando padrões de arquiteturas de acordo com a necessidade do projeto.<br>
+O processo de autenticação conta com uma rota para o login com a opção de login com email e
+senha.<br>
+Quando as informções estão corretas retorna um token jwt contendo no mínimo as seguintes informações do usuário: identificador, nome, email e tipo de usuário.<br>
+Para acessar algumas rotas é pedido um token de autorização.<br>
 
 <br>
     
-<div align="center">
-<img src="https://user-images.githubusercontent.com/92600746/179316338-273d0f26-0fe8-4f7b-baba-8c2198c94fa9.jpeg" align="center">
-</div>
-<div align="center">
-<img src="https://user-images.githubusercontent.com/92600746/179316793-7fdfdb9f-2c44-4a13-9935-3712db740463.jpeg" align="center">
-</div>
+
 
 
 <section class="devs">
@@ -26,104 +20,40 @@ Este é um e-commerce da marca Kelly Laços & Acessórios, promovendo melhor vis
 <table>
     <tr>
         <td align=”center”>
-            <a href="https://github.com/andersonmsousa">
-                <img src="https://avatars.githubusercontent.com/u/99672186?v=4" width="250px">
+            <a href="https://github.com/marcelowkr2">
+                <img src="https://avatars.githubusercontent.com/u/119169432?v=4" width="250px">
                     <sub>
-                        <b> Anderson Sousa [Frontend] </b>
+                        <b> Marcelo Pires [Backend] </b>
                     </sub>
             </a>
         </td>
 
 <td align=”center”>
-            <a href="https://www.linkedin.com/in/danilo-sales-5aabbb38">
-                <img src="https://avatars.githubusercontent.com/u/40240895?v=4" width="250px">
+            <a href="https://github.com/JenniferOSF">
+                <img src="https://avatars.githubusercontent.com/u/104332662?v=4" width="250px">
                     <sub>
-                        <b> Danilo Sales [Backend] </b>
+                        <b> Jennifer Oliveira [Backend] </b>
                     </sub>
             </a>
         </td>
         <td align=”center”>
-            <a href="https://www.linkedin.com/in/luiz-felipe-couto-mendes/">
-                <img src="https://avatars.githubusercontent.com/u/59844712?v=4" width="280px">
+            <a href="https://github.com/FabioDinizMoura">
+                <img src="https://avatars.githubusercontent.com/u/122230967?v=4" width="280px">
                     <sub>
-                        <b> Felipe Mendes [Frontend] </b>
+                        <b> Fábio Diniz [Beckend] </b>
                     </sub>
             </a>
         </td>
 <td align=”center”>
-            <a href="https://www.linkedin.com/in/juliana-andrade/">
-                <img src="https://avatars.githubusercontent.com/u/90662162?v=4" width="280px">
+            <a href="https://github.com/FMascena">
+                <img src="https://avatars.githubusercontent.com/u/119469019?v=4" width="280px">
                     <sub>
-                        <b> Juliana Andrade [Backend] </b>
+                        <b> Felipe Mascena [Frontend] </b>
                     </sub>
             </a>
         </td>
 
-<td align=”center”>
-            <a href="https://www.linkedin.com/in/lucasrobertodefranciscodev/">
-                <img src="https://avatars.githubusercontent.com/u/100739581?v=4" width="250px">
-                    <sub>
-                        <b> Lucas Roberto [Backend] </b>
-                    </sub>
-            </a>
-        </td>
-<td align=”center”>
-            <a href="https://www.linkedin.com/in/rafaelgarnasci/">
-                <img src="https://user-images.githubusercontent.com/92600746/178128764-c05f007d-1592-400e-a586-66f5c2057abf.jpg" width="280px">
-                    <sub>
-                        <b> Rafael Nascimento [Backend] </b>
-                    </sub>
-            </a>
-        </td>
- <td align=”center”>
-          <a href="https://www.linkedin.com/in/talita-de-lana-nascimento-511b44b3">
-               <img src="https://avatars.githubusercontent.com/u/100472925?v=4" width="280px">
-                    <sub>
-                        <b> Talita de Lana [Backend]  </b>
-                    </sub>
-            </a>
-        </td> 
-</table>
-</br>
-</section>
-<section class="Designers">
-  <h2> Designers </h2>
 
-<table>
-    <tr>
-        <td align=”center”>
-            <a href="http://linkedin.com/in/claudiocaus">
-                <img src="https://user-images.githubusercontent.com/92600746/178128978-cfd8e704-44b3-4edb-b117-615980c26708.png" width="250px">
-                    <sub>
-                        <b> Claudio Caus </b>
-                    </sub>
-            </a>
-        </td>
-
-<td align=”center”>
-            <a href="https://www.linkedin.com/in/euller-fernandes-447955205/">
-                <img src="https://user-images.githubusercontent.com/92600746/178129022-fabcb099-9cfb-4162-b8a8-2b56eca8a9b5.png" width="250px">
-                    <sub>
-                        <b> Euller Fernandes </b>
-                    </sub>
-            </a>
-        </td>
-        <td align=”center”>
-            <a href="https://www.linkedin.com/in/jayne-nunes/">
-                <img src="https://user-images.githubusercontent.com/92600746/178128974-005c60fe-c70a-4f61-a71c-d99f9d1a4fe5.png" width="280px">
-                    <sub>
-                        <b> Jayne Nunes </b>
-                    </sub>
-            </a>
-        </td>
-<td align=”center”>
-            <a href="https://www.linkedin.com/in/mariliapimentab/">
-                <img src="https://user-images.githubusercontent.com/92600746/178128844-ac8e8511-f219-4d51-9fd4-d50ed17b13ef.png" width="280px">
-                    <sub>
-                        <b> Marilia Pimenta </b>
-                    </sub>
-            </a>
-        </td>
 </table>
 </br>
 </section>
@@ -154,11 +84,9 @@ Este é um e-commerce da marca Kelly Laços & Acessórios, promovendo melhor vis
 <section class="Documentação">
 
 ## Documentação
-<p> <a href="https://kellylacosetiaras.herokuapp.com/"> Deploy </a> </p>
-<p> <a href="https://documenter.getpostman.com/view/21853755/UzJPMuqb"> Documentação da API </a></p>
-<p> <a href="https://documenter.getpostman.com/view/21853755/UzJPMuqb"> Layout </a></p>
-<p> <a href="https://www.notion.so/mariliapimentab/Big-Boss-Kelly-La-os-Acess-rios-a3c2c0e8497242d280935debc528e1e2"> Notion </a></p>
-<p> <a href="https://trello.com/invite/b/b8hdUver/21c7abbe6c9aedafa9a17d5c2f5ca176/hacker-desafio-chefao"> Trello </a></p>
+<p> <a href="https://documenter.postman.com/preview/25858603-3046d444-b348-4cc7-8682-5ff3c00a8b6a?environment=&versionTag=latest&apiName=CURRENT&version=latest&documentationLayout=classic-double-column&documentationTheme=light&logo=https://res.cloudinary.com/postman/image/upload/t_team_logo/v1/team/anonymous_team&logoDark=https://res.cloudinary.com/postman/image/upload/t_team_logo/v1/team/anonymous_team&right-sidebar=303030&top-bar=FFFFFF&highlight=FF6C37&right-sidebar-dark=303030&top-bar-dark=212121&highlight-dark=FF6C37#fd836a1b-303d-4c9e-be5d-12651ddff0f8"> Documentação da API </a></p>
+
+
 </section>
 
 
